@@ -34,8 +34,8 @@ namespace MySite
             //   appSecret: "");
 
             app.UseGitHubAuthentication(
-                clientId: "6abd147e58f3799f9c04",
-                clientSecret: "e1bf1608b7d5dc73ba485c12fb20bdc39d4c515f");
+                clientId: "",
+                clientSecret: "");
 
 
             //app.UseGoogleAuthentication();
