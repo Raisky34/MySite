@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Foundation/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- Nav Bar -->
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="nav-bar right">      
+                <ul class="button-group">
+                    @Html.Partial("_LoginPartial")
+                    @*<li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "button" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "button" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "button" })</li>*@
+                    @*<li>@Html.ActionLink("Task", "Task", "Home", null, new { @class = "button" })</li>*@
+                </ul>
+                
+                
+            </div>
+            <h1>Blog <small>This is my blog. It's awesome.</small></h1>
+            <hr />
+        </div>
+    </div>
+    <!-- End Nav -->
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+        <!-- Main Blog Content -->
+        <!-- Main Blog Content -->
+        <div class="large-9 columns" role="content">
+            @RenderBody()
+        </div>
+        <!-- End Main Content -->
+        <!-- End Main Content -->
+        <!-- Sidebar -->
+        <aside class="large-3 columns">
+            <h5>Categories Task:</h5>
+            <ul class="side-nav">
+                <li><a href="#">Create</a></li>
+                <li><a href="#">Top of the solved</a></li>
+                <li><a href="#">Top of the unresolved</a></li>
+                <li><a href="#">Top of the popular</a></li>
+                <li><a href="http://localhost:1488/Home/Index">Main</a></li>
+            </ul>
+            <div class="panel">
+                <h5>Featured</h5>
+                <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+                <a href="#">Read More &rarr;</a>
+            </div>
+        </aside>
+        <!-- End Sidebar -->
+    </div>
+    <!-- End Main Content and Sidebar -->
+    <!-- Footer -->
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-6 columns">
+                    <p>&copy; Copyright no one at all. Go to town.</p>
+                </div>
+                <div class="large-6 columns">
+                    <ul class="inline-list right">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Task", "Task", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/foundation")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
