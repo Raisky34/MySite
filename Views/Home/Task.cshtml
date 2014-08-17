@@ -1,0 +1,120 @@
+@model IEnumerable<MySite.Models.Image>
+@{
+    ViewBag.Title = "Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Title.</h2>
+@*<h3>@ViewBag.Message</h3>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style type="text/css">
+        textarea {
+            width: 60%; /* Ширина поля в процентах */
+            height: 200px; /* Высота поля в пикселах */
+            resize: none; /* Запрещаем изменять размер */
+            overflow: auto;
+            outline: none;
+            -moz-appearance: none;
+            border: 1px solid #999; /* указание этого свойства также удалит обводку в FireFox */
+        }
+        .textarea-cvet::-moz-selection {
+            color: white;
+            background: black;
+        }
+
+        .textarea-cvet::selection {
+            color: white;
+            background: black;
+        }
+    </style>
+
+    <script language="JavaScript" type="text/javascript">
+        function flexibleTextarea(b) {
+            var a = document.getElementById(b) || b;
+            if (a) {
+                a.style.overflow = "hidden";
+                var e = a.rows = a.rows > 0 ? a.rows : 2;
+                b = a.cols = a.cols > 0 ? a.cols : 20;
+                var g = RegExp("([^\r\n]{" + b + "})([^\r\n])"),
+                    f = RegExp("[^\n]{" + b + "}\n?$|[^\n]{0," + b + "}\n");
+                a.onkeyup = a.onkeydown = function () {
+                    a.value = a.value.replace(g, "$1\r\n$2");
+                    for (var c = 0, d = a.value; d.search(f) >= 0;) {
+                        c++;
+                        d = d.replace(f, "")
+                    }
+                    c += 2;
+                    if (c < e) c = e;
+                    a.rows = c
+                }
+            }
+        };
+        window.onload = function () {
+            flexibleTextarea('textarea');
+        }
+    </script>
+</head>
+<body>
+    @*<div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            @using (Html.BeginForm("Task", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form id="text" class="form-group">
+                    <fieldset>
+                        <legend>Create Task</legend>
+                        <input value="select" onclick="javascript:this.form.selboton.focus();this.form.selboton.select();" type="button" />
+                        <textarea id="textarea" placeholder="Input condition task there." name="selboton" form="text"></textarea>
+                    </fieldset>
+                </form>
+            }
+                </div>
+            </div>
+        </div>*@
+
+                @*<div class="jumbotron">
+                        <div class="ui-widget ui-helper-clearfix">
+                            <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                                <!--<div class="fotorama" data-maxwidth="60%" id="fotorama" data-hash="true">-->
+                                @foreach (var image in @Model)
+                                {
+
+                                    <li class="ui-widget-content ui-corner-tr">
+                                        <img src="@image.Path">
+                                        <a href="DeleteImage/@image.Id" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+                                    </li>
+                                }
+                                <!--</div>-->
+                            </ul>
+
+                        </div>
+                    </div>*@
+      <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            @using (Html.BeginForm("Task", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <form class="form-group">
+                                    <fieldset>
+                                        <legend>Condition</legend>
+                                        <input value="select" onclick="javascript:this.form.selboton.focus();this.form.selboton.select();" type="button" />
+                                        <textarea id="textarea" placeholder="Input condition task there." name="selboton" form="text"></textarea>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Upload image</legend>
+                                        <input type="file" name="fileUpload" accept="image/*" class="btn btn-default" title="Choose image" />
+                                        <input type="submit" class="btn btn-success" value="OK" />
+                                    </fieldset>
+                                </form>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+
+</body>
+</html>
